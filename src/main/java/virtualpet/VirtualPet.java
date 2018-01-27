@@ -23,10 +23,24 @@ public class VirtualPet {
 		return boredom;
 	}
 	
-	public void tick(int i) {
+	public void tick() {
 		hunger++;
 		thirst++;
 		boredom++;
+	}
+
+	public void feed() {
+		hunger -= 10;
+		
+	}
+
+	public void drink() {
+		thirst -= 10;
+		
+	}
+
+	public void play() {
+		boredom -= 10;
 	}
 
 }

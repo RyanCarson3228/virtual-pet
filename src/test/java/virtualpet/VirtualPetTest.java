@@ -14,7 +14,6 @@ public class VirtualPetTest {
 		// assert
 		Assert.assertEquals("Harry the Gila Monster", name);
 	}
-
 	@Test
 	public void shouldHaveHunger() {
 		// arrange
@@ -24,7 +23,6 @@ public class VirtualPetTest {
 		// assert
 		Assert.assertEquals(25, hungerLevel);
 	}
-
 	@Test
 	public void shouldHaveThirst() {
 		// arrange
@@ -34,7 +32,6 @@ public class VirtualPetTest {
 		// assert
 		Assert.assertEquals(25, thirstLevel);
 	}
-
 	@Test
 	public void shouldHaveBoredom() {
 		// arrange
@@ -44,13 +41,13 @@ public class VirtualPetTest {
 		// assert
 		Assert.assertEquals(25, boredomLevel);
 	}
-	
+
 	@Test
 	public void shouldHaveTickIncreaseHunger() {
 		//arrange
 		VirtualPet underTest = new VirtualPet();
 		//act
-		underTest.tick(1);
+		underTest.tick();
 		//assert
 		int hunger = underTest.HungerLevel();
 		Assert.assertEquals(26, hunger);
@@ -60,7 +57,7 @@ public class VirtualPetTest {
 		//arrange
 		VirtualPet underTest = new VirtualPet();
 		//act
-		underTest.tick(1);
+		underTest.tick();
 		//assert
 		int thirst = underTest.ThirstLevel();
 		Assert.assertEquals(26, thirst);
@@ -70,12 +67,41 @@ public class VirtualPetTest {
 		//arrange
 		VirtualPet underTest = new VirtualPet();
 		//act
-		underTest.tick(1);
+		underTest.tick();
 		//assert
 		int boredom = underTest.BoredomLevel();
 		Assert.assertEquals(26, boredom);
 	}
-	
+	@Test
+	public void shouldHaveFeedDecreaseHunger() {
+		//arrange
+		VirtualPet underTest = new VirtualPet();
+		//act
+		underTest.feed();
+		//assert
+		int hunger = underTest.HungerLevel();
+		Assert.assertEquals(15, hunger);
+	}
+	@Test
+	public void shouldHaveDrinkDecreasethirst() {
+		//arrange
+		VirtualPet underTest = new VirtualPet();
+		//act
+		underTest.drink();
+		//assert
+		int thirst = underTest.ThirstLevel();
+		Assert.assertEquals(15, thirst);
+	}
+	@Test
+	public void shouldHavePlayDecreaseBoredom() {
+		//arrange
+		VirtualPet underTest = new VirtualPet();
+		//act
+		underTest.play();
+		//assert
+		int boredom = underTest.BoredomLevel();
+		Assert.assertEquals(15, boredom);
+	}
 	
 
 }
