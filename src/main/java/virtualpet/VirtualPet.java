@@ -2,29 +2,34 @@ package virtualpet;
 
 public class VirtualPet {
 
-	public int initialHunger;
-	public int initialThirst;
-	public int currentHunger = 15;
+//	public int initialHunger;
+//	public int initialThirst;
+	public int currentHunger = 40;
 	public int currentThirst = 15;
 	public int currentBoredom = 20;
+	public String name = "Harry the Gila Monster";
 
 	public VirtualPet() {
+	}
+	
+	public VirtualPet(String name) {
+		
 	}
 
 	public VirtualPet(int currentThirst, int currentHunger, int intialBoredom) {
 
 	}
 
-	public int feed() {
-		return currentHunger -= 5;
+	public void feed() {
+		currentHunger -= 5;
 	}
 
-	public int drink() {
-		return currentThirst -= 5;
+	public void drink() {
+		currentThirst -= 5;
 	}
 
-	public int play() {
-		return currentBoredom -= 5;
+	public void play() {
+		currentBoredom -= 5;
 	}
 
 	public int getHunger() {
