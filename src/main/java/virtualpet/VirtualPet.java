@@ -2,45 +2,40 @@ package virtualpet;
 
 public class VirtualPet {
 
-	public String name = "Harry the Gila Monster";
-	public int hunger = 25;
-	public int thirst = 25;
-	public int boredom = 25;
+	int initialHunger;
+	int initialThirst;
+	int currentHunger = 15;
+	int currentThirst = 15;
 
-	public String hasName() {
-		return name;
+	public VirtualPet() {
 	}
 
-	public int HungerLevel() {
-		return hunger;
+	public VirtualPet(int initialHunger) {
 	}
 
-	public int ThirstLevel() {
-		return thirst;
+	public VirtualPet(int currentThirst, int currentHunger) {
+
 	}
 
-	public int BoredomLevel() {
-		return boredom;
+	public int feed() {
+		return currentHunger -= 5;
 	}
-	
+
+	public int drink() {
+		return currentThirst -= 5;
+	}
+
+	public int getHunger() {
+		return currentHunger;
+	}
+
+	public int getThirst() {
+		return currentThirst;
+	}
+
 	public void tick() {
-		hunger++;
-		thirst++;
-		boredom++;
-	}
-
-	public void feed() {
-		hunger -= 10;
-		
-	}
-
-	public void drink() {
-		thirst -= 10;
-		
-	}
-
-	public void play() {
-		boredom -= 10;
+		currentHunger += 2;
+		currentThirst += 2;
 	}
 
 }

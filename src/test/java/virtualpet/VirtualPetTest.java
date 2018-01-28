@@ -6,102 +6,48 @@ import org.junit.Test;
 public class VirtualPetTest {
 
 	@Test
-	public void shouldHaveName() {
+	public void shouldBeLessHungryAfterFeeding() {
 		// arrange
-		VirtualPet underTest = new VirtualPet();
+		int initialHunger = 20;
+		VirtualPet underTest = new VirtualPet(initialHunger, 0);
 		// act
-		String name = underTest.hasName();
-		// assert
-		Assert.assertEquals("Harry the Gila Monster", name);
-	}
-	@Test
-	public void shouldHaveHunger() {
-		// arrange
-		VirtualPet underTest = new VirtualPet();
-		// act
-		int hungerLevel = underTest.HungerLevel();
-		// assert
-		Assert.assertEquals(25, hungerLevel);
-	}
-	@Test
-	public void shouldHaveThirst() {
-		// arrange
-		VirtualPet underTest = new VirtualPet();
-		// act
-		int thirstLevel = underTest.ThirstLevel();
-		// assert
-		Assert.assertEquals(25, thirstLevel);
-	}
-	@Test
-	public void shouldHaveBoredom() {
-		// arrange
-		VirtualPet underTest = new VirtualPet();
-		// act
-		int boredomLevel = underTest.BoredomLevel();
-		// assert
-		Assert.assertEquals(25, boredomLevel);
-	}
-
-	@Test
-	public void shouldHaveTickIncreaseHunger() {
-		//arrange
-		VirtualPet underTest = new VirtualPet();
-		//act
-		underTest.tick();
-		//assert
-		int hunger = underTest.HungerLevel();
-		Assert.assertEquals(26, hunger);
-	}
-	@Test
-	public void shouldHaveTickIncreaseThirst() {
-		//arrange
-		VirtualPet underTest = new VirtualPet();
-		//act
-		underTest.tick();
-		//assert
-		int thirst = underTest.ThirstLevel();
-		Assert.assertEquals(26, thirst);
-	}
-	@Test
-	public void shouldHaveTickIncreaseBoredom() {
-		//arrange
-		VirtualPet underTest = new VirtualPet();
-		//act
-		underTest.tick();
-		//assert
-		int boredom = underTest.BoredomLevel();
-		Assert.assertEquals(26, boredom);
-	}
-	@Test
-	public void shouldHaveFeedDecreaseHunger() {
-		//arrange
-		VirtualPet underTest = new VirtualPet();
-		//act
 		underTest.feed();
-		//assert
-		int hunger = underTest.HungerLevel();
-		Assert.assertEquals(15, hunger);
+		// assert
+		int currentHunger = underTest.getHunger();
+		Assert.assertEquals(10, currentHunger);
 	}
-	@Test
-	public void shouldHaveDrinkDecreasethirst() {
-		//arrange
-		VirtualPet underTest = new VirtualPet();
-		//act
-		underTest.drink();
-		//assert
-		int thirst = underTest.ThirstLevel();
-		Assert.assertEquals(15, thirst);
-	}
-	@Test
-	public void shouldHavePlayDecreaseBoredom() {
-		//arrange
-		VirtualPet underTest = new VirtualPet();
-		//act
-		underTest.play();
-		//assert
-		int boredom = underTest.BoredomLevel();
-		Assert.assertEquals(15, boredom);
-	}
-	
 
+	@Test
+	public void shouldBeMoreHungryAfterTick() {
+		// arrange
+		VirtualPet underTest = new VirtualPet(15, 0);
+		// act
+		underTest.tick();
+		// assess
+		int currentHunger = underTest.getHunger();
+		Assert.assertEquals(17, currentHunger);
+	}
+
+	@Test
+	public void shouldBeLessThirstyAfterDrinking() {
+		// arrange
+		int initialThirst = 20;
+		VirtualPet underTest = new VirtualPet(0, initialThirst);
+		// act
+		underTest.drink();
+		// assess
+		int currentThirst = underTest.getThirst();
+		Assert.assertEquals(10, currentThirst);
+	}
+
+	@Test
+	public void shouldBeMoreThirstyAfterTick() {
+		// arrange
+		VirtualPet underTest = new VirtualPet(0, 15);
+		// act
+		underTest.tick();
+		// assess
+		int currentThirst = underTest.getThirst();
+		Assert.assertEquals("Thirst should have increased by 2", 18, currentThirst);
+	}
 }
