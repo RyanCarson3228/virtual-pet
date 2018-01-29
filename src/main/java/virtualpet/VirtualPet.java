@@ -2,8 +2,6 @@ package virtualpet;
 
 public class VirtualPet {
 
-	// public int initialHunger;
-	// public int initialThirst;
 	public int currentHunger = 38;
 	public int currentThirst = 13;
 	public int currentBoredom = 18;

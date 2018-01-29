@@ -18,6 +18,7 @@ public class VirtualPetApp {
 		System.out.println("and Harry requires lots of attention and responsibility.");
 		System.out.println("You'll be in charge of Harry's eating and drinking habits,");
 		System.out.println("as well as playing with him so he doesn't get bored!");
+		System.out.println("Be Warned: if you don't take proper care of Harry he'll be taken away.");
 		System.out.println("Right now Harry is very hungry, but not very thirsty, and he is a little bored.");
 		while (myPet.getHunger() <= 50 && myPet.getThirst() <= 50 && myPet.getBoredom() <= 50) {
 			myPet.tick();
@@ -29,13 +30,6 @@ public class VirtualPetApp {
 			System.out.println("2. Give Harry some water.");
 			System.out.println("3. Play with Harry.");
 			String task = input.nextLine();
-			if (myPet.getHunger() >= 50 || myPet.getThirst() >= 50 || myPet.getBoredom() >= 50) {
-				System.out.println("You didn't take proper care of Harry!\nUnfortunately PETA took him away.");
-				System.exit(0);
-			} else if(myPet.getHunger() <= 0 || myPet.getThirst() <= 0 || myPet.getBoredom() <= 0) {
-				System.out.println("You didn't take proper care of Harry!\nUnfortunately PETA took him away.");
-				System.exit(0);
-			}
 			if (task.equals("1")) {
 				myPet.feed();
 			} else if (task.equals("2")) {
@@ -46,6 +40,14 @@ public class VirtualPetApp {
 				System.out.println("You didn't pick one of the options!");
 				System.out.println("While you were fooling around Harry got hungrier, thirstier, and more bored.\n");
 			}
+			if (myPet.getHunger() >= 50 || myPet.getThirst() >= 50 || myPet.getBoredom() >= 50) {
+				System.out.println("You didn't take proper care of Harry!\nUnfortunately PETA took him away.");
+				System.exit(0);
+			} else if (myPet.getHunger() <= 0 || myPet.getThirst() <= 0 || myPet.getBoredom() <= 0) {
+				System.out.println("You didn't take proper care of Harry!\nUnfortunately PETA took him away.");
+				System.exit(0);
+			}
 		}
+		input.close();
 	}
 }
