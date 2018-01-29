@@ -2,18 +2,18 @@ package virtualpet;
 
 public class VirtualPet {
 
-//	public int initialHunger;
-//	public int initialThirst;
-	public int currentHunger = 40;
-	public int currentThirst = 15;
-	public int currentBoredom = 20;
+	// public int initialHunger;
+	// public int initialThirst;
+	public int currentHunger = 38;
+	public int currentThirst = 13;
+	public int currentBoredom = 18;
 	public String name = "Harry the Gila Monster";
 
 	public VirtualPet() {
 	}
-	
+
 	public VirtualPet(String name) {
-		
+
 	}
 
 	public VirtualPet(int currentThirst, int currentHunger, int intialBoredom) {
@@ -21,15 +21,15 @@ public class VirtualPet {
 	}
 
 	public void feed() {
-		currentHunger -= 5;
+		currentHunger -= 7;
 	}
 
 	public void drink() {
-		currentThirst -= 5;
+		currentThirst -= 7;
 	}
 
 	public void play() {
-		currentBoredom -= 5;
+		currentBoredom -= 7;
 	}
 
 	public int getHunger() {
